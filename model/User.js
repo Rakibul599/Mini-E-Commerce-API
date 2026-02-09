@@ -18,6 +18,10 @@ const userSchema=new mongoose.Schema({
         type:String,
         enum:['admin','customer'],
         default:'customer'
+    },
+    cancel_count:{
+        type:Number,
+        default:0
     }
 },{timestamps:true});
 

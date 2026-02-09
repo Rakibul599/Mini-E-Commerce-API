@@ -1,7 +1,8 @@
 const express=require('express');
 const dotenv=require('dotenv');
 const mongoose=require('mongoose');
-const registrationRouter=require('./router/registrationRouter');
+const authRoute=require('./router/auth.route');
+const productRoute=require('./router/product.route');
 
 dotenv.config();
 const app=express();
@@ -20,7 +21,11 @@ mongoose.connect(process.env.MONGO_URL,{
 });
 
 // Use registration router
-app.use('/api/auth',registrationRouter);
+app.use('/api/auth',authRoute);
+
+app.use('/api/admin',productRoute);
+
+
 
 app.get('/',(req,res)=>{
     res.send('server is running');

@@ -1,4 +1,5 @@
 const { check, validationResult } = require("express-validator");
+const jwt = require("jsonwebtoken");
 const User = require("../model/User");
 
 const newUservalidators = [
@@ -34,11 +35,34 @@ const newUserValidationHandler = function (req, res, next) {
     next();
   } else {
     // response the errors
-    console.log(mappedErrors);
+    // console.log(mappedErrors);
     res.status(200).json({
       errors: mappedErrors,
     });
   }
 };
 
-module.exports = { newUservalidators, newUserValidationHandler };
+
+
+const auth = (req, res, next) => {
+    try {
+        const { authorization } = req.headers;
+
+        if (!authorization || !authorization.startsWith("Bearer ")) {
+            return res.status(401).json({ message: "No token provided" });
+        }
+
+        // Bearer TOKEN
+        const token = authorization.split(" ")[1];
+
+        const decoded = jwt.verify(token, process.env.JWT_SECRET);
+
+        req.user = decoded; 
+        // console.log(decoded);
+        next();
+    } catch (error) {
+        return res.status(401).json({ message: "Authentication failed" });
+    }
+};
+
+module.exports = { newUservalidators, newUserValidationHandler,auth };
