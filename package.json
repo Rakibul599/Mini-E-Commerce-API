@@ -1,0 +1,20 @@
+{
+  "name": "mini-e-commerce-api",
+  "version": "1.0.0",
+  "description": "Ecomerce api",
+  "main": "server.js",
+  "scripts": {
+    "test": "npm start",
+    "dev": "nodemon server.js"
+  },
+  "author": "Rakibul Alam",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "express": "^5.2.1",
+    "express-validator": "^7.3.1",
+    "jsonwebtoken": "^9.0.3",
+    "moongose": "^1.0.0",
+    "nodemon": "^3.1.11"
+  }
+}
