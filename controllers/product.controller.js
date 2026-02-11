@@ -3,11 +3,10 @@ const Product = require('../model/Product');
 async function createProduct(req, res) {
     try {
         const result = await Product.create(req.body);
-        res.status(201).json({ message: "Product created successfully",result });
+        return res.status(201).json({ message: "Product created successfully", result });
     } catch (error) {
-        res.status(500).json({ message: "Error creating product", error: error.message });
+        return res.status(500).json({ message: "Error creating product", error: error.message });
     }
-    res.status(201).json({ message: "Product created successfully" });
 }
 // Get all products
 async function getAllProducts(req, res) {
@@ -60,4 +59,4 @@ async function patchStock(req, res) {
     }
 }
 
-module.exports = { createProduct,getAllProducts,updateProduct,deleteProduct,patchStock };
+module.exports = { createProduct, getAllProducts, updateProduct, deleteProduct, patchStock };

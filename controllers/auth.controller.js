@@ -12,7 +12,7 @@ async function registerUser(req, res) {
     role: req.body.role || "customer",
   });
   try {
-    newUser.save();
+    await newUser.save();
     res.status(201).json({ message: "User registered successfully" });
   } catch (error) {
     res
