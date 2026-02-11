@@ -3,6 +3,9 @@ const dotenv=require('dotenv');
 const mongoose=require('mongoose');
 const authRoute=require('./router/auth.route');
 const productRoute=require('./router/product.route');
+const cartRoute=require('./router/cart.route');
+
+// Load environment variables from .env file
 
 dotenv.config();
 const app=express();
@@ -20,11 +23,15 @@ mongoose.connect(process.env.MONGO_URL,{
     console.error('Error connecting to MongoDB',err);
 });
 
+
 // Use registration router
 app.use('/api/auth',authRoute);
 
+// admin route
 app.use('/api/admin',productRoute);
 
+// cart route
+app.use('/api/cart',cartRoute);
 
 
 app.get('/',(req,res)=>{
