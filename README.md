@@ -1,19 +1,28 @@
 #  Mini E-Commerce API
 
-The **Mini E-Commerce API** is a robust backend system simulating a basic online shopping platform. It features JWT-based authentication, Role-Based Access Control (RBAC), product management, cart operations, and order processing with strict business rules and transaction handling.
+The **Mini E-Commerce API** is a robust backend system simulating a basic online shopping platform. It features JWT-based authentication, Role-Based Access Control, product management, cart operations, and order processing with strict business rules and transaction handling.
 
 ---
+
+## Live Demo & API Documentation
+
+- Live API Base URL: https://mini-e-commerce-api-lj0k.onrender.com
+- Swagger Documentation: https://mini-e-commerce-api-lj0k.onrender.com/api-docs
 
 ## Tech Stack
 
 - **Runtime**: Node.js
 - **Framework**: Express.js
-- **Database**: MongoDB (via Mongoose)
-- **Authentication**: JWT (JSON Web Tokens)
-- **Security**: Bcrypt (Password Hashing)
+- **Database**: MongoDB
+- **Authentication**: JWT 
+- **Security**: Bcrypt 
 - **Validation**: Express-validator
 
 ---
+
+## Database Schema Diagram
+
+![Database Schema](./Database%20Schema%20Diagram.png)
 
 ## Setup Instructions
 
