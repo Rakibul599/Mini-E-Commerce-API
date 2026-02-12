@@ -51,7 +51,8 @@ const swaggerOptions = {
         },
         servers: [
             {
-                url: `http://localhost:${process.env.PORT || 5000}`,
+                // url: `http://localhost:${process.env.PORT || 5000}`,
+                url:"https://mini-e-commerce-api-lj0k.onrender.com/",
             },
         ],
         components: {
